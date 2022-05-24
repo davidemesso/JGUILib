@@ -1,9 +1,11 @@
 JGUIController controller;
 JGUIDropdown dd;
+JGUITextfield tf;
 
 void setup()
 {
-  size(500, 500);
+  //fullScreen();
+  size(500, 600);
   frameRate(60);
   background(255, 255, 255);
   
@@ -25,8 +27,17 @@ void setup()
       .addButton(new JGUIButton("Unicorno"))
       .addButton(new JGUIButton("Castoro"))
       .addButton(new JGUIButton("Alieno"));
-      
   controller.add(dd);
+  
+  tf = 
+    new JGUITextfield(300,400)
+    .setSize(120,25)
+    .setLabel("Name")
+    .setLabelColor(color(0, 0, 0))
+    .setFillColor(color(20, 20, 128))
+    .setTextColor(color(255, 255, 255));
+    
+  controller.add(tf);
 
 }
 
@@ -39,5 +50,11 @@ void draw()
 Callback onClickCallback = new CallbackFunction() {
   void execute(JGUIButtonGeneric o) { 
     print(dd.getValue()); 
+    print(tf.getText()); 
+    //openKeyboard();
   }
 };
+
+void keyPressed() {
+  tf.keyPressed();
+}

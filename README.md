@@ -7,7 +7,7 @@ A simple and user-friendly GUI library for processing
 * [Button](./JGUILib/JGUIButton.pde)
 * [Callback](./JGUILib/Callback.pde)
 * [Dropdown](./JGUILib/JGUIDropdown.pde)
-* WIP textbox
+* [Textfield](./JGUILib/JGUITextfield.pde)
 * WIP Slider
 * WIP checkbox
 
@@ -27,7 +27,7 @@ Now you can add to it all your customized components, for example:
       .setCallback(onClickCallback)
   );
   
-  dd =
+  JGUIDropdown dd =
     new JGUIDropdown("Power", 200, 300)
       .setSize(35, 16)
       .setFillColor(color(20, 20, 128))
@@ -35,15 +35,22 @@ Now you can add to it all your customized components, for example:
       .addButton(new JGUIButton("Unicorno"))
       .addButton(new JGUIButton("Castoro"))
       .addButton(new JGUIButton("Alieno"));
-      
   controller.add(dd);
+
+  JGUITextfield tf =
+    new JGUITextfield(300,400)
+      .setSize(120,25)
+      .setLabel("Name")
+      .setLabelColor(color(0, 0, 0))
+      .setFillColor(color(20, 20, 128))
+      .setTextColor(color(255, 255, 255));
+  controller.add(tf);
 ```
 
 Create a global callback for your buttons, binded as in the previous example
 ```java
 Callback onClickCallback = new CallbackFunction() {
   void execute(JGUIButtonGeneric o) { 
-    print(dd.getValue()); 
     // DO STUFFS
   }
 };
@@ -53,8 +60,16 @@ When everything is set up you can just call the controller handle function insid
 ```java
 void draw() 
 {
-  background(255, 255, 255);
+  // REDRAW STUFFS
   controller.handle();
+  // MORE STUFFS
+}
+```
+
+Note if you use some textfield you must include the event handler this way
+```java
+void keyPressed() {
+  tf.keyPressed();
 }
 ```
 
