@@ -38,6 +38,7 @@ class JGUITextfield extends JGUIComponent<JGUITextfield> {
     
     fill(labelColor);
     text(label, getPos().x + 5, getPos().y + getSize().y+5);
+    
   }
 
   public void keyPressed() {

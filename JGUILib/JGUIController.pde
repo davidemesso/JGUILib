@@ -12,8 +12,15 @@ class JGUIController {
   public void handle() {
     for(JGUIComponent c : components) 
     {
-      c.draw();
-      c.handle();
+      if(c.isVisible()) {
+        c.draw();
+        c.handle();
+      }
     }
+  }
+  
+  public void clear() {
+    for(JGUIComponent c : components)
+      c.setVisible(false);
   }
 }

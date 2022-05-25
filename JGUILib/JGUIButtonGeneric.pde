@@ -38,16 +38,14 @@ class JGUIButtonGeneric<T> extends JGUIComponent<T> {
   }
   
   public void draw() {
-    if(isVisible())
-    {
-      fill(getFillColor());
-      rectMode(RADIUS);
-      rect(getPos().x, getPos().y, getSize().x, getSize().y);
-      
-      textAlign(CENTER, CENTER);
-      fill(getTextColor());
-      textSize(12);
-      text(label, getPos().x, getPos().y);
-    }
+    fill(getFillColor());
+    rectMode(RADIUS);
+    rect(getPos().x, getPos().y, getSize().x, getSize().y);
+    
+    textAlign(CENTER, CENTER);
+    fill(getTextColor());
+    textSize(12);
+    text(label, getPos().x, getPos().y);
+    
   }
 }
