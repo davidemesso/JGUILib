@@ -54,14 +54,15 @@ void draw()
 }
 
 Callback onClickCallback = new CallbackFunction() {
-  void execute(JGUIButtonGeneric o) { 
+  void execute(JGUIComponent o) { 
     controller.remove(dd);
     controller.remove(tf);
+    print( ((JGUIButton) o).label );
   }
 };
 
 Callback onSlideCallback = new CallbackFunction() {
-  void execute(JGUIButtonGeneric o) { 
+  void call() { 
     print(sl.getValue() + "\n");
   }
 };

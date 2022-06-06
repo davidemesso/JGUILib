@@ -48,7 +48,7 @@ class JGUISlider extends JGUIComponent<JGUISlider>{
       value = round(
         map(sliderPos, getPos().x-getSize().x/2, getPos().x+getSize().x/2, min, max));
       if(onValueChanged != null && lastValue != value)
-        onValueChanged.execute(null);
+        onValueChanged.call();
     }
   }
 }

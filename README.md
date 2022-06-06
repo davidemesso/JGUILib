@@ -57,13 +57,27 @@ Now you can add to it all your customized components, for example:
   controller.add(sl);
 ```
 
-Create a global callback for your buttons, binded as in the previous example
+Create a global callback for your buttons, binded as in the previous example.<br>
+There are two types of callback for different cases:
+* execute(JGUIComponent)
+  - can access to the component who launched it
+* call()
+  - can just be called without parameters
 ```java
 Callback onClickCallback = new CallbackFunction() {
-  void execute(JGUIButtonGeneric o) { 
-    // DO STUFFS
+  void execute(JGUIComponent o) { 
+    // STUFFS
+    print( ((JGUIButton) o).label );
   }
 };
+
+Callback onSlideCallback = new CallbackFunction() {
+  void call() { 
+    // STUFFS
+    print(sl.getValue() + "\n");
+  }
+};
+
 ```
 
 When everything is set up you can just call the controller handle function inside the draw() loop and it will handle every added component
