@@ -51,7 +51,7 @@ Callback onClickCallback = new CallbackFunction() {
   void execute(JGUIButtonGeneric o) { 
     print(dd.getValue()); 
     print(tf.getText()); 
-    //openKeyboard();
+    controller.clear();
   }
 };
 

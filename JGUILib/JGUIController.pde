@@ -1,8 +1,10 @@
 class JGUIController {
   private ArrayList<JGUIComponent> components;
+  private boolean clearing;
   
   public JGUIController() {
     components = new ArrayList<JGUIComponent>();
+    clearing = false;
   }
   
   public void add(JGUIComponent c) {
@@ -10,6 +12,11 @@ class JGUIController {
   }
   
   public void handle() {
+    if(clearing)
+    {
+      components.clear();
+      clearing = false;
+    }
     for(JGUIComponent c : components) 
     {
       if(c.isVisible()) {
@@ -20,7 +27,6 @@ class JGUIController {
   }
   
   public void clear() {
-    for(JGUIComponent c : components)
-      c.setVisible(false);
+    clearing = true;
   }
 }
