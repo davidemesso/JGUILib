@@ -55,9 +55,8 @@ void draw()
 
 Callback onClickCallback = new CallbackFunction() {
   void execute(JGUIButtonGeneric o) { 
-    print(dd.getValue()); 
-    print(tf.getText()); 
-    controller.clear();
+    controller.remove(dd);
+    controller.remove(tf);
   }
 };
 

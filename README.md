@@ -83,6 +83,16 @@ void keyPressed() {
 }
 ```
 
+### Removing components
+You can clear all the controller or delete a specific component from it
+```java
+// Components from previous examples
+controller.remove(dd);
+controller.remove(tf);
+
+controller.clear();
+```
+
 ### Chaining allowed:
 As prevoiusly showed, chaining can be used for compacting sintax as every customization of a components returns the component itself
 ```java
