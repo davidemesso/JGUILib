@@ -11,7 +11,7 @@ A simple and user-friendly GUI library for processing
 * [Dropdown](./JGUILib/JGUIDropdown.pde)
 * [Textfield](./JGUILib/JGUITextfield.pde)
 * [Slider](./JGUILib/JGUISlider.pde)
-* WIP checkbox
+* [Checkbox](./JGUILib/JGUICheckbox.pde)
 * WIP radiobutton
 
 ### How to use:
@@ -56,6 +56,7 @@ Now you can add to it all your customized components, for example:
       .setCallback(onSlideCallback);
   controller.add(sl);
 ```
+NOTE: all others examples for components can be found in [Main](./JGUILib/JGUILib.pde)
 
 Create a global callback for your buttons, binded as in the previous example.<br>
 There are two types of callback for different cases:

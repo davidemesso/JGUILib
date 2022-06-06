@@ -10,7 +10,7 @@ class JGUIDropdown extends JGUIButtonGeneric<JGUIDropdown> {
   }
   
   private Callback onClickCallback = new CallbackFunction() {
-    void execute(JGUIButtonGeneric o) { 
+    void execute(JGUIComponent o) { 
       isOpen = !isOpen;
       final char c = isOpen ? 'V' : '^';
       label = label.substring(0, label.length()-1) + c;

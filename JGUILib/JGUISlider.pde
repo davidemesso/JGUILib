@@ -6,7 +6,7 @@ class JGUISlider extends JGUIComponent<JGUISlider>{
   private int value;
   private Callback onValueChanged;
   
-  public JGUISlider(int x, int y, int min, int max) {
+  public JGUISlider(float x, float y, int min, int max) {
     setPos(new PVector(x, y));
     this.min = min;
     this.max = max;
@@ -48,7 +48,10 @@ class JGUISlider extends JGUIComponent<JGUISlider>{
       value = round(
         map(sliderPos, getPos().x-getSize().x/2, getPos().x+getSize().x/2, min, max));
       if(onValueChanged != null && lastValue != value)
+      {
         onValueChanged.call();
+        onValueChanged.execute(this);
+      }
     }
   }
 }

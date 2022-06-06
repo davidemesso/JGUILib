@@ -4,6 +4,6 @@ interface Callback {
 }
 
 abstract class CallbackFunction implements Callback {
-  void execute(JGUIComponent o){}
-  void call(){}
+  void execute(JGUIComponent o) {}
+  void call() {}
 }

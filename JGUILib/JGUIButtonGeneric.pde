@@ -1,4 +1,4 @@
-class JGUIButtonGeneric<T> extends JGUIComponent<T> {
+abstract class JGUIButtonGeneric<T> extends JGUIComponent<T> {
   public String label; 
   public int value;
   private int debounce; 
@@ -23,6 +23,14 @@ class JGUIButtonGeneric<T> extends JGUIComponent<T> {
     callback = cb;
     return (T)this;
   }
+  
+  public Callback getCallback() {
+    return callback;
+  }
+  
+  public String getLabel() {
+    return label;
+  }
 
   public void handle() {
     if(mousePressed && abs(mouseX - getPos().x) <= getSize().x
@@ -30,7 +38,11 @@ class JGUIButtonGeneric<T> extends JGUIComponent<T> {
                     && debounce == 0)
     {
       debounce = 15;
-      callback.execute(this);
+      if(callback != null)
+      {
+        callback.execute(this);
+        callback.call();
+      }
     }
     
     if(debounce > 0)
