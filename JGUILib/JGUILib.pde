@@ -1,6 +1,7 @@
 JGUIController controller;
 JGUIDropdown dd;
 JGUITextfield tf;
+JGUISlider sl;
 
 void setup()
 {
@@ -31,14 +32,19 @@ void setup()
   
   tf = 
     new JGUITextfield(300,400)
-    .setSize(120,25)
-    .setLabel("Name")
-    .setLabelColor(color(0, 0, 0))
-    .setFillColor(color(20, 20, 128))
-    .setTextColor(color(255, 255, 255));
-    
+      .setSize(120,25)
+      .setLabel("Name")
+      .setLabelColor(color(0, 0, 0))
+      .setFillColor(color(20, 20, 128))
+      .setTextColor(color(255, 255, 255));
   controller.add(tf);
-
+  
+  sl =
+    new JGUISlider(300,250, 1, 10)
+      .setSize(150,20)
+      .setFillColor(color(20, 20, 128))
+      .setCallback(onSlideCallback);
+  controller.add(sl);
 }
 
 void draw() 
@@ -52,6 +58,12 @@ Callback onClickCallback = new CallbackFunction() {
     print(dd.getValue()); 
     print(tf.getText()); 
     controller.clear();
+  }
+};
+
+Callback onSlideCallback = new CallbackFunction() {
+  void execute(JGUIButtonGeneric o) { 
+    print(sl.getValue() + "\n");
   }
 };
 

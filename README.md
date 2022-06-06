@@ -1,6 +1,8 @@
-## JGUILib 
+# JGUILib 
 
 A simple and user-friendly GUI library for processing
+
+![image info](./showcase.png)
 
 ### Components and utils:
 * [Controller](./JGUILib/JGUIController.pde)
@@ -8,10 +10,11 @@ A simple and user-friendly GUI library for processing
 * [Callback](./JGUILib/Callback.pde)
 * [Dropdown](./JGUILib/JGUIDropdown.pde)
 * [Textfield](./JGUILib/JGUITextfield.pde)
-* WIP Slider
+* [Slider](./JGUILib/JGUISlider.pde)
 * WIP checkbox
+* WIP radiobutton
 
-#### How to use:
+### How to use:
 First of all you need to instantiate the controller object
 ```java
 JGUIController controller = new JGUIController();
@@ -45,6 +48,13 @@ Now you can add to it all your customized components, for example:
       .setFillColor(color(20, 20, 128))
       .setTextColor(color(255, 255, 255));
   controller.add(tf);
+
+  JGUISlider sl =
+    new JGUISlider(300,250, 1, 10)
+      .setSize(150,20)
+      .setFillColor(color(20, 20, 128))
+      .setCallback(onSlideCallback);
+  controller.add(sl);
 ```
 
 Create a global callback for your buttons, binded as in the previous example
