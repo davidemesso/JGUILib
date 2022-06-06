@@ -1,8 +1,8 @@
-class JGUICheckbox extends JGUIButtonGeneric<JGUICheckbox> {
+class JGUIRadiobutton extends JGUIButtonGeneric<JGUIRadiobutton> {
   private boolean selected;
   private int debounce;
   
-  public JGUICheckbox(String label, float x, float y) {
+  public JGUIRadiobutton(String label, float x, float y) {
     super(label, new PVector(x, y));
     selected = false;
     debounce = 0;
@@ -16,7 +16,7 @@ class JGUICheckbox extends JGUIButtonGeneric<JGUICheckbox> {
     stroke(2);
     color c = (selected)? color(getFillColor()) : color(255);
     fill(c);
-    rect(getPos().x, getPos().y, getSize().x, getSize().y);
+    ellipse(getPos().x, getPos().y, getSize().x, getSize().y);
     fill(getTextColor());
     textSize(12);
     text(getLabel(), getPos().x + getSize().x, getPos().y);
@@ -40,7 +40,7 @@ class JGUICheckbox extends JGUIButtonGeneric<JGUICheckbox> {
       debounce--;
   }
   
-  public JGUICheckbox setSelected(boolean s) {
+  public JGUIRadiobutton setSelected(boolean s) {
     selected = s;
     return this;
   }

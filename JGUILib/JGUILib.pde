@@ -2,6 +2,7 @@ JGUIController controller;
 JGUIDropdown dd;
 JGUITextfield tf;
 JGUISlider sl;
+JGUIRadioGroup rg;
 
 void setup()
 {
@@ -68,7 +69,30 @@ void setup()
       .setSize(15,15)
       .setFillColor(color(20, 20, 128))
       .setTextColor(color(0))
+      .setSelected(true)
       .setCallback(onStateChangedCallback));
+      
+  // Radiobuttons
+  rg =
+    new JGUIRadioGroup()
+      .add(
+        new JGUIRadiobutton("one", 300, 300)
+          .setSize(12,12)
+          .setFillColor(color(20, 20, 128))
+          .setTextColor(color(0)))
+      .add(
+        new JGUIRadiobutton("two", 300, 320)
+          .setSize(12,12)
+          .setFillColor(color(20, 20, 128))
+          .setTextColor(color(0))
+          .setSelected(true))
+      .add(
+        new JGUIRadiobutton("three", 300, 340)
+          .setSize(12,12)
+          .setFillColor(color(20, 20, 128))
+          .setTextColor(color(0)))
+      .setCallback(onSelectionChangedCallback);
+  controller.add(rg);
 }
 
 void draw() 
@@ -81,6 +105,7 @@ Callback onClickCallback = new CallbackFunction() {
   void call() { 
     controller.remove(dd);
     controller.remove(tf);
+    controller.remove(rg);
   }
 };
 
@@ -93,6 +118,12 @@ Callback onSlideCallback = new CallbackFunction() {
 Callback onStateChangedCallback = new CallbackFunction() {
   void execute(JGUIComponent o) { 
     print(((JGUICheckbox) o).label + " " + ((JGUICheckbox) o).selected + "\n");
+  }
+};
+
+Callback onSelectionChangedCallback = new CallbackFunction() {
+  void execute(JGUIComponent o) { 
+    print(((JGUIRadioGroup) o).getSelected().getLabel() + " selected\n");
   }
 };
 

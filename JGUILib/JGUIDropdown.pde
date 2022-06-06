@@ -45,10 +45,10 @@ class JGUIDropdown extends JGUIButtonGeneric<JGUIDropdown> {
   }
   
   Callback selectedButton = new CallbackFunction() {
-    void execute(JGUIButtonGeneric o) { 
-      label = o.label + " ^";
+    void execute(JGUIComponent o) { 
+      label = ((JGUIButtonGeneric)o).label + " ^";
       isOpen = !isOpen;
-      value = o.value;
+      value = ((JGUIButtonGeneric)o).value;
     }
   };
 }

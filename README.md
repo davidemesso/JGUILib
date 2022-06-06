@@ -12,7 +12,8 @@ A simple and user-friendly GUI library for processing
 * [Textfield](./JGUILib/JGUITextfield.pde)
 * [Slider](./JGUILib/JGUISlider.pde)
 * [Checkbox](./JGUILib/JGUICheckbox.pde)
-* WIP radiobutton
+* [RadioGroup](./JGUILib/JGUIRadioGroup.pde)
+* [Radiobutton](./JGUILib/JGUIRadiobutton.pde)
 
 ### How to use:
 First of all you need to instantiate the controller object
@@ -55,6 +56,28 @@ Now you can add to it all your customized components, for example:
       .setFillColor(color(20, 20, 128))
       .setCallback(onSlideCallback);
   controller.add(sl);
+
+  // Radiobuttons
+  controller.add(
+    new JGUIRadioGroup()
+      .add(
+        new JGUIRadiobutton("one", 300, 300)
+          .setSize(12,12)
+          .setFillColor(color(20, 20, 128))
+          .setTextColor(color(0)))
+      .add(
+        new JGUIRadiobutton("two", 300, 320)
+          .setSize(12,12)
+          .setFillColor(color(20, 20, 128))
+          .setTextColor(color(0))
+          .setSelected(true))
+      .add(
+        new JGUIRadiobutton("three", 300, 340)
+          .setSize(12,12)
+          .setFillColor(color(20, 20, 128))
+          .setTextColor(color(0)))
+      .setCallback(onSelectionChangedCallback)
+  );
 ```
 NOTE: all others examples for components can be found in [Main](./JGUILib/JGUILib.pde)
 
@@ -91,11 +114,18 @@ void draw()
 }
 ```
 
-Note if you use some textfield you must include the event handler this way
+NOTE: if you use some textfield you must include the event handler this way
 ```java
 void keyPressed() {
   tf.keyPressed();
 }
+```
+
+NOTE: if you use some radiobuttons they must be added to a RadioGroup in order to work properly.<br>
+Every RadioGroup works with its buttons, making them mutually excluded
+```java
+
+
 ```
 
 ### Removing components
